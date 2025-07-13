@@ -35,6 +35,7 @@ button:hover {
   grid-auto-rows: min-content;
   gap: 10px;
   margin-top: 2rem;
+  grid-auto-flow: dense;
 }
 
 /* Títulos de semestres */
