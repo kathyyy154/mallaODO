@@ -1,112 +1,48 @@
-const cursos = {
-  // Semestre 1
-  "Morfofunción I": [],
-  "Matemáticas": [],
-  "Biología General": [],
-  "Química General": [],
-  "Introducción a la Odontología": [],
+// Relaciones de prerrequisitos reales según la malla const prerequisitos = { morfo2: ["morfo1"], biofisica: ["mate"], bioquimica: ["bio", "quim"], habilidades1: ["intro"],
 
-  // Semestre 2
-  "Morfofunción II": ["Morfofunción I"],
-  "Biofísica": ["Matemáticas"],
-  "Bioquímica": ["Biología General", "Química General"],
-  "Habilidades y Destrezas I": ["Introducción a la Odontología"],
+anato: ["morfo2"], micropara: ["morfo2", "bioquimica"], patogen: ["morfo2"], bioetica: ["intro"],
 
-  // Semestre 3
-  "Anatomía Aplicada": ["Morfofunción II"],
-  "Microbiología y Parasitología": ["Morfofunción II", "Bioquímica"],
-  "Patología General": ["Morfofunción II"],
-  "Bioética": ["Introducción a la Odontología"],
+preclinico: ["biofisica", "habilidades1"], microoral: ["micropara"], rad: ["biofisica"], patoral1: ["patogen"], epidemio: ["mate"],
 
-  // Semestre 4
-  "Preclínico y Biomateriales Dentales": ["Biofísica", "Habilidades y Destrezas I"],
-  "Microbiología Oral": ["Microbiología y Parasitología"],
-  "Protección Radiológica": ["Biofísica"],
-  "Patología Oral I": ["Patología General"],
-  "Epidemiología": ["Matemáticas"],
+imagenes1: ["anato", "rad"], patoral2: ["patoral1", "microoral"],
 
-  // Semestre 5
-  "Diagnóstico por Imágenes I": ["Anatomía Aplicada", "Protección Radiológica"],
-  "Patología Oral II": ["Patología Oral I", "Microbiología Oral"],
+farmacologia: ["microoral", "patoral1"], rehab: ["anato", "preclinico", "microoral"], cirugia: ["microoral", "patoral1", "anato"], oclusion: ["anato", "preclinico"],
 
-  // Semestre 5–6
-  "Farmacología General y Clínica": ["Microbiología Oral", "Patología Oral I"],
-  "Preclínico Rehabilitación y Cariología": ["Anatomía Aplicada", "Preclínico y Biomateriales Dentales", "Microbiología Oral"],
-  "Cirugía Bucal": ["Microbiología Oral", "Patología Oral I", "Anatomía Aplicada"],
-  "Oclusión y TTM": ["Anatomía Aplicada", "Preclínico y Biomateriales Dentales"],
+imagenes2: ["imagenes1"], patoral3: ["patoral2"],
 
-  // Semestre 6
-  "Diagnóstico por Imágenes II": ["Diagnóstico por Imágenes I"],
-  "Patología Oral III": ["Patología Oral II"],
+nino1: ["farmacologia", "rehab", "imagenes2", "patoral3"], rehaboral: ["farmacologia", "rehab", "cirugia", "oclusion", "imagenes2", "patoral3"], endo: ["farmacologia", "rehab", "oclusion", "imagenes2", "patoral3"], perio: ["farmacologia", "rehab", "oclusion", "imagenes2", "patoral3"], trauma: ["farmacologia", "cirugia", "imagenes2", "patoral3"], ingles1: ["habilidades1"],
 
-  // Clínicos 7–8
-  "Clínica Niño y Ortodoncia I": ["Farmacología General y Clínica", "Preclínico Rehabilitación y Cariología", "Diagnóstico por Imágenes II", "Patología Oral III"],
-  "Clínica Rehabilitación Oral": ["Farmacología General y Clínica", "Preclínico Rehabilitación y Cariología", "Cirugía Bucal", "Oclusión y TTM", "Diagnóstico por Imágenes II", "Patología Oral III"],
-  "Clínica Endodoncia": ["Farmacología General y Clínica", "Preclínico Rehabilitación y Cariología", "Oclusión y TTM", "Diagnóstico por Imágenes II", "Patología Oral III"],
-  "Clínica Periodoncia": ["Farmacología General y Clínica", "Preclínico Rehabilitación y Cariología", "Oclusión y TTM", "Diagnóstico por Imágenes II", "Patología Oral III"],
-  "Cirugía y Trauma B.D.": ["Farmacología General y Clínica", "Cirugía Bucal", "Diagnóstico por Imágenes II", "Patología Oral III"],
-  "Inglés I": ["Habilidades y Destrezas I"],
+nino2: ["nino1"], adulto: ["rehaboral", "endo", "perio", "trauma"], maxilo: ["trauma"], promoprev: ["epidemio", "rehab", "nino1", "perio"], ingles2: ["ingles1"],
 
-  // Clínicos 9–10
-  "Clínica Niño y Ortodoncia II": ["Clínica Niño y Ortodoncia I"],
-  "Clínica Integral del Adulto y Senescente": ["Clínica Rehabilitación Oral", "Clínica Endodoncia", "Clínica Periodoncia", "Cirugía y Trauma B.D."],
-  "Cirugía Maxilofacial": ["Cirugía y Trauma B.D."],
-  "Promoción y Prevención": ["Epidemiología", "Preclínico Rehabilitación y Cariología", "Clínica Niño y Ortodoncia I", "Clínica Periodoncia"],
-  "Inglés II": ["Inglés I"],
+legal: ["nino1", "rehaboral", "endo", "perio", "trauma"], gestion: ["promoprev"],
 
-  // Semestre 10
-  "Odontología Legal": ["Clínica Niño y Ortodoncia I", "Clínica Rehabilitación Oral", "Clínica Endodoncia", "Clínica Periodoncia", "Cirugía y Trauma B.D."],
-  "Gestión en Salud": ["Promoción y Prevención"],
+invest: ["legal", "gestion"], internado: ["legal", "gestion"], seminario: ["invest"] };
 
-  // Semestre 11–12
-  "Metodología de la Investigación": ["Odontología Legal", "Gestión en Salud"],
-  "Internado Asistencial": ["Odontología Legal", "Gestión en Salud"],
-  "Seminario de Investigación": ["Metodología de la Investigación"]
-};
+let aprobados = JSON.parse(localStorage.getItem("aprobados") || "[]");
 
-const aprobados = new Set(JSON.parse(localStorage.getItem("aprobados") || "[]"));
-const g = new dagreD3.graphlib.Graph().setGraph({ rankdir: "LR" });
+function aprobar(id) { const ramo = document.getElementById(id); if (ramo.classList.contains("bloqueado")) return;
 
-Object.keys(cursos).forEach((curso) => {
-  const estado = getEstado(curso);
-  g.setNode(curso, {
-    label: curso,
-    class: estado,
-    rx: 8,
-    ry: 8
-  });
-});
+if (ramo.classList.contains("aprobado")) { ramo.classList.remove("aprobado"); aprobados = aprobados.filter(x => x !== id); } else { ramo.classList.add("aprobado"); aprobados.push(id); }
 
-Object.entries(cursos).forEach(([curso, prereqs]) => {
-  prereqs.forEach((req) => {
-    g.setEdge(req, curso);
-  });
-});
+localStorage.setItem("aprobados", JSON.stringify(aprobados)); actualizarDisponibilidad(); }
 
-const render = new dagreD3.render();
-const svg = d3.select("svg");
-const inner = svg.append("g");
-render(inner, g);
+function actualizarDisponibilidad() { document.querySelectorAll(".ramo").forEach(ramo => { const id = ramo.id; if (aprobados.includes(id)) { ramo.classList.remove("bloqueado", "disponible"); ramo.classList.add("aprobado"); } else { const reqs = prerequisitos[id] || []; const desbloqueado = reqs.every(req => aprobados.includes(req));
 
-const zoom = d3.zoom().on("zoom", (event) => {
-  inner.attr("transform", event.transform);
-});
-svg.call(zoom).call(zoom.transform, d3.zoomIdentity.scale(0.75).translate(20, 20));
+ramo.classList.remove("aprobado");
 
-svg.selectAll("g.node").on("click", function () {
-  const label = d3.select(this).select("text").text();
-  if (aprobados.has(label)) {
-    aprobados.delete(label);
+  if (reqs.length === 0) {
+    ramo.classList.remove("bloqueado");
+    ramo.classList.add("disponible");
+  } else if (desbloqueado) {
+    ramo.classList.remove("bloqueado");
+    ramo.classList.add("disponible");
   } else {
-    aprobados.add(label);
+    ramo.classList.remove("disponible");
+    ramo.classList.add("bloqueado");
   }
-  localStorage.setItem("aprobados", JSON.stringify([...aprobados]));
-  location.reload();
-});
-
-function getEstado(curso) {
-  if (aprobados.has(curso)) return "aprobado";
-  const prereqs = cursos[curso];
-  if (prereqs.length === 0) return "disponible";
-  return prereqs.every((r) => aprobados.has(r)) ? "disponible" : "bloqueado";
 }
+
+}); }
+
+actualizarDisponibilidad();
+
