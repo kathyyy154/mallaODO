@@ -115,10 +115,10 @@ button:hover {
 
 /* CORRECCIÓN DEFINITIVA: ramos dobles bien posicionados por ID */
 #preclinico     { grid-column-start: 3; grid-column-end: span 2; }
-#farmaco        { grid-column-start: 6; grid-column-end: span 2; }
-#rehabili       { grid-column-start: 6; grid-column-end: span 2; }
-#cirubucal      { grid-column-start: 6; grid-column-end: span 2; }
-#oclusion       { grid-column-start: 6; grid-column-end: span 2; }
+#farmaco        { grid-column-start: 5; grid-column-end: span 2; }
+#rehabili       { grid-column-start: 5; grid-column-end: span 2; }
+#cirubucal      { grid-column-start: 5; grid-column-end: span 2; }
+#oclusion       { grid-column-start: 5; grid-column-end: span 2; }
 #nino1          { grid-column-start: 7; grid-column-end: span 2; }
 #rehab          { grid-column-start: 7; grid-column-end: span 2; }
 #endo           { grid-column-start: 7; grid-column-end: span 2; }
