@@ -28,15 +28,16 @@ button:hover {
   background-color: #ec407a;
 }
 
-/* Contenedor de malla */
+/* Contenedor de la malla */
 .malla {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: min-content;
   gap: 10px;
   margin-top: 2rem;
 }
 
-/* Título de cada semestre */
+/* Títulos de semestres */
 .sem-titulo {
   text-align: center;
   font-weight: bold;
@@ -58,9 +59,10 @@ button:hover {
   transition: all 0.3s ease;
   cursor: default;
   word-wrap: break-word;
+  grid-row: span 1;
 }
 
-/* Ramos anuales */
+/* Ramos anuales que ocupan dos columnas */
 .ramo.doble {
   grid-column: span 2;
 }
@@ -87,11 +89,7 @@ button:hover {
   border-color: #bdbdbd;
 }
 
-/* POSICIONAMIENTO EXACTO POR SEMESTRE */
-.ramo[data-col] {
-  grid-column: span 1;
-}
-
+/* Posición por semestre según data-col */
 .ramo[data-col="1"] { grid-column-start: 1; }
 .ramo[data-col="2"] { grid-column-start: 2; }
 .ramo[data-col="3"] { grid-column-start: 3; }
