@@ -1,28 +1,22 @@
-/* styles.css */
+/* styles.css actualizado para malla tipo tabla 12 columnas */
 
 body { font-family: Arial, sans-serif; background-color: #ffe6f0; margin: 0; padding: 20px; color: #333; }
 
 h1 { text-align: center; color: #d63384; }
 
-h2 { margin-top: 40px; color: #c2185b; border-bottom: 2px solid #f48fb1; padding-bottom: 5px; }
-
-h3 { color: #ad1457; margin-bottom: 10px; }
-
-#malla-container { display: flex; flex-direction: column; gap: 30px; }
-
-.semestre { background-color: #fff0f5; border-left: 5px solid #f06292; padding: 10px; margin-bottom: 10px; border-radius: 8px; }
-
-.ramos { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-
-.ramo { padding: 10px 15px; background-color: #f8bbd0; border: 2px solid #ec407a; border-radius: 10px; cursor: pointer; transition: all 0.2s ease; flex: 1 0 200px; text-align: center; user-select: none; font-weight: bold; }
-
-.ramo.bloqueado { background-color: #fce4ec; border: 2px dashed #ccc; color: #aaa; cursor: not-allowed; opacity: 0.6; }
-
-.ramo.aprobado { background-color: #c2185b; color: #fff; border-color: #880e4f; }
-
-.ramo:not(.bloqueado):hover { background-color: #f06292; color: white; transform: scale(1.03); }
-
-#reiniciar-btn { display: block; margin: 10px auto 30px auto; padding: 10px 20px; background-color: #f06292; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease; }
+#reiniciar-btn { display: block; margin: 20px auto; padding: 10px 20px; background-color: #f06292; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.2s ease; }
 
 #reiniciar-btn:hover { background-color: #ec407a; }
+
+#grid-malla { display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; align-items: start; margin-top: 30px; }
+
+.semestre-header { text-align: center; font-weight: bold; color: #880e4f; padding: 10px 0; background-color: #fce4ec; border-radius: 5px; grid-row: 1; }
+
+.ramo { background-color: #f8bbd0; border: 2px solid #ec407a; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; transition: all 0.2s ease; font-weight: bold; user-select: none; grid-row: auto; }
+
+.ramo.bloqueado { background-color: #fce4ec; border: 2px dashed #ccc; color: #aaa; cursor: not-allowed; opacity: 0.6; text-decoration: none; }
+
+.ramo.aprobado { background-color: #c2185b; color: #fff; border-color: #880e4f; text-decoration: line-through; }
+
+.ramo:not(.bloqueado):hover { background-color: #f06292; color: white; transform: scale(1.03); }
 
