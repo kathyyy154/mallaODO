@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const ramos = document.querySelectorAll(".ramo");
 
+  // Activar los ramos sin prerrequisitos
   ramos.forEach(ramo => {
     const prer = ramo.dataset.prer?.split(",") || [];
-
-    // Si no tiene prerrequisitos, se puede clicar desde el inicio
     if (prer.length === 0) {
       ramo.classList.add("desbloqueado");
     }
@@ -12,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ramo.addEventListener("click", () => {
       if (!ramo.classList.contains("desbloqueado")) return;
 
-      // Marcar como aprobado
+      // Alternar aprobación
       ramo.classList.toggle("aprobado");
 
-      // Recalcular desbloqueos
+      // Verificar si eso desbloquea otros ramos
       actualizarDesbloqueos();
     });
   });
@@ -26,18 +25,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (prer.length === 0) return;
 
-      const aprobados = prer.every(id => {
-        const nodo = document.getElementById(id);
-        return nodo && nodo.classList.contains("aprobado");
+      const todosAprobados = prer.every(id => {
+        const prereq = document.getElementById(id);
+        return prereq && prereq.classList.contains("aprobado");
       });
 
-      if (aprobados) {
+      if (todosAprobados) {
         ramo.classList.add("desbloqueado");
       } else {
-        // Si algún prerrequisito se desmarca, lo bloqueamos de nuevo
         ramo.classList.remove("desbloqueado");
         ramo.classList.remove("aprobado");
       }
     });
   }
+
+  // Función global para botón de reinicio
+  window.reiniciarMalla = function () {
+    ramos.forEach(ramo => {
+      ramo.classList.remove("aprobado", "desbloqueado");
+    });
+
+    ramos.forEach(ramo => {
+      const prer = ramo.dataset.prer?.split(",") || [];
+      if (prer.length === 0) {
+        ramo.classList.add("desbloqueado");
+      }
+    });
+  };
 });
