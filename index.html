@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Malla Odontología Interactiva</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://unpkg.com/dagre-d3@0.6.4/dist/dagre-d3.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Malla Odontología UDP</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Malla Interactiva Odontología UDP</h1>
-    </header>
+  <h1>Malla Interactiva Odontología UDP</h1>
 
-    <main>
-      <div id="malla-wrapper">
-        <svg id="svg-canvas"></svg>
-      </div>
-    </main>
+  <div class="malla">
+    <div class="semestre">
+      <h2>1° Semestre</h2>
+      <div class="ramo disponible" id="morfo1" onclick="aprobar('morfo1')">Morfofunción I</div>
+      <div class="ramo disponible" id="mate" onclick="aprobar('mate')">Matemáticas</div>
+      <div class="ramo disponible" id="bio" onclick="aprobar('bio')">Biología General</div>
+      <div class="ramo disponible" id="quim" onclick="aprobar('quim')">Química General</div>
+      <div class="ramo disponible" id="intro" onclick="aprobar('intro')">Introducción a la Odontología</div>
+    </div>
 
-    <footer>
-      <p>Haz clic sobre los ramos para marcarlos como aprobados. El progreso se guarda automáticamente en tu navegador.</p>
-    </footer>
+    <div class="semestre">
+      <h2>2° Semestre</h2>
+      <div class="ramo bloqueado" id="morfo2" onclick="aprobar('morfo2')">Morfofunción II</div>
+      <div class="ramo bloqueado" id="biofisica" onclick="aprobar('biofisica')">Biofísica</div>
+    </div>
   </div>
 
   <script src="script.js"></script>
