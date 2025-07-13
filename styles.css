@@ -61,6 +61,7 @@ button:hover {
   cursor: default;
   word-wrap: break-word;
   grid-row: span 1;
+  min-height: 60px;
 }
 
 /* Ramos desbloqueados */
