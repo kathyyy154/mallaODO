@@ -1,30 +1,101 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Malla Odontología UDP</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Malla Interactiva Odontología UDP</h1>
+  <h1>Malla Interactiva Odontología UDP</h1>  <div class="malla"><!-- Semestre 1 -->
+<div class="semestre">
+  <h2>1° Semestre</h2>
+  <div class="ramo disponible" id="morfo1" onclick="aprobar('morfo1')">Morfofunción I</div>
+  <div class="ramo disponible" id="mate" onclick="aprobar('mate')">Matemáticas</div>
+  <div class="ramo disponible" id="bio" onclick="aprobar('bio')">Biología General</div>
+  <div class="ramo disponible" id="quim" onclick="aprobar('quim')">Química General</div>
+  <div class="ramo disponible" id="intro" onclick="aprobar('intro')">Introducción a la Odontología</div>
+</div>
 
-  <div class="malla">
-    <div class="semestre">
-      <h2>1° Semestre</h2>
-      <div class="ramo disponible" id="morfo1" onclick="aprobar('morfo1')">Morfofunción I</div>
-      <div class="ramo disponible" id="mate" onclick="aprobar('mate')">Matemáticas</div>
-      <div class="ramo disponible" id="bio" onclick="aprobar('bio')">Biología General</div>
-      <div class="ramo disponible" id="quim" onclick="aprobar('quim')">Química General</div>
-      <div class="ramo disponible" id="intro" onclick="aprobar('intro')">Introducción a la Odontología</div>
-    </div>
+<!-- Semestre 2 -->
+<div class="semestre">
+  <h2>2° Semestre</h2>
+  <div class="ramo bloqueado" id="morfo2" onclick="aprobar('morfo2')">Morfofunción II</div>
+  <div class="ramo bloqueado" id="biofisica" onclick="aprobar('biofisica')">Biofísica</div>
+  <div class="ramo bloqueado" id="bioquimica" onclick="aprobar('bioquimica')">Bioquímica</div>
+  <div class="ramo bloqueado" id="habilidades1" onclick="aprobar('habilidades1')">Habilidades y Destrezas I</div>
+</div>
 
-    <div class="semestre">
-      <h2>2° Semestre</h2>
-      <div class="ramo bloqueado" id="morfo2" onclick="aprobar('morfo2')">Morfofunción II</div>
-      <div class="ramo bloqueado" id="biofisica" onclick="aprobar('biofisica')">Biofísica</div>
-    </div>
-  </div>
+<!-- Semestre 3 -->
+<div class="semestre">
+  <h2>3° Semestre</h2>
+  <div class="ramo bloqueado" id="anato" onclick="aprobar('anato')">Anatomía Aplicada</div>
+  <div class="ramo bloqueado" id="micropara" onclick="aprobar('micropara')">Microbiología y Parasitología</div>
+  <div class="ramo bloqueado" id="patogen" onclick="aprobar('patogen')">Patología General</div>
+  <div class="ramo bloqueado" id="bioetica" onclick="aprobar('bioetica')">Bioética</div>
+</div>
 
-  <script src="script.js"></script>
-</body>
+<!-- Semestre 4 -->
+<div class="semestre">
+  <h2>4° Semestre</h2>
+  <div class="ramo bloqueado" id="preclinico" onclick="aprobar('preclinico')">Preclínico y Biomateriales Dentales</div>
+  <div class="ramo bloqueado" id="microoral" onclick="aprobar('microoral')">Microbiología Oral</div>
+  <div class="ramo bloqueado" id="rad" onclick="aprobar('rad')">Protección Radiológica</div>
+  <div class="ramo bloqueado" id="patoral1" onclick="aprobar('patoral1')">Patología Oral I</div>
+  <div class="ramo bloqueado" id="epidemio" onclick="aprobar('epidemio')">Epidemiología</div>
+</div>
+
+<!-- Semestre 5 -->
+<div class="semestre">
+  <h2>5° Semestre</h2>
+  <div class="ramo bloqueado" id="imagenes1" onclick="aprobar('imagenes1')">Diagnóstico por Imágenes I</div>
+  <div class="ramo bloqueado" id="patoral2" onclick="aprobar('patoral2')">Patología Oral II</div>
+</div>
+
+<!-- Semestre 6 -->
+<div class="semestre">
+  <h2>6° Semestre</h2>
+  <div class="ramo bloqueado" id="farmacologia" onclick="aprobar('farmacologia')">Farmacología General y Clínica</div>
+  <div class="ramo bloqueado" id="rehab" onclick="aprobar('rehab')">Preclínico Rehabilitación y Cariología</div>
+  <div class="ramo bloqueado" id="cirugia" onclick="aprobar('cirugia')">Cirugía Bucal</div>
+  <div class="ramo bloqueado" id="oclusion" onclick="aprobar('oclusion')">Oclusión y TTM</div>
+  <div class="ramo bloqueado" id="imagenes2" onclick="aprobar('imagenes2')">Diagnóstico por Imágenes II</div>
+  <div class="ramo bloqueado" id="patoral3" onclick="aprobar('patoral3')">Patología Oral III</div>
+</div>
+
+<!-- Semestre 7-8 -->
+<div class="semestre">
+  <h2>7°–8° Semestre</h2>
+  <div class="ramo bloqueado" id="nino1" onclick="aprobar('nino1')">Clínica Niño y Ortodoncia I</div>
+  <div class="ramo bloqueado" id="rehaboral" onclick="aprobar('rehaboral')">Clínica Rehabilitación Oral</div>
+  <div class="ramo bloqueado" id="endo" onclick="aprobar('endo')">Clínica Endodoncia</div>
+  <div class="ramo bloqueado" id="perio" onclick="aprobar('perio')">Clínica Periodoncia</div>
+  <div class="ramo bloqueado" id="trauma" onclick="aprobar('trauma')">Cirugía y Trauma B.D.</div>
+  <div class="ramo bloqueado" id="ingles1" onclick="aprobar('ingles1')">Inglés I</div>
+</div>
+
+<!-- Semestre 9–10 -->
+<div class="semestre">
+  <h2>9°–10° Semestre</h2>
+  <div class="ramo bloqueado" id="nino2" onclick="aprobar('nino2')">Clínica Niño y Ortodoncia II</div>
+  <div class="ramo bloqueado" id="adulto" onclick="aprobar('adulto')">Clínica Integral del Adulto y Senescente</div>
+  <div class="ramo bloqueado" id="maxilo" onclick="aprobar('maxilo')">Cirugía Maxilofacial</div>
+  <div class="ramo bloqueado" id="promoprev" onclick="aprobar('promoprev')">Promoción y Prevención</div>
+  <div class="ramo bloqueado" id="ingles2" onclick="aprobar('ingles2')">Inglés II</div>
+</div>
+
+<!-- Semestre 10 -->
+<div class="semestre">
+  <h2>10° Semestre</h2>
+  <div class="ramo bloqueado" id="legal" onclick="aprobar('legal')">Odontología Legal</div>
+  <div class="ramo bloqueado" id="gestion" onclick="aprobar('gestion')">Gestión en Salud</div>
+</div>
+
+<!-- Semestre 11–12 -->
+<div class="semestre">
+  <h2>11°–12° Semestre</h2>
+  <div class="ramo bloqueado" id="invest" onclick="aprobar('invest')">Metodología de la Investigación</div>
+  <div class="ramo bloqueado" id="internado" onclick="aprobar('internado')">Internado Asistencial</div>
+  <div class="ramo bloqueado" id="seminario" onclick="aprobar('seminario')">Seminario de Investigación</div>
+</div>
+
+  </div>  <script src="script.js"></script></body>
 </html>
