@@ -10,7 +10,7 @@
   <button onclick="reiniciarMalla()">Reiniciar malla</button>
 
   <div class="malla">
-    <!-- Cabeceras de semestres -->
+    <!-- Cabecera de semestres -->
     <div class="sem-titulo">1°</div>
     <div class="sem-titulo">2°</div>
     <div class="sem-titulo">3°</div>
@@ -24,77 +24,101 @@
     <div class="sem-titulo">11°</div>
     <div class="sem-titulo">12°</div>
 
-    <!-- Ramo por ramo con su columna y requisitos -->
-    <div class="ramo" id="morfo1" data-col="1">Morfofunción I</div>
-    <div class="ramo" id="matematicas" data-col="1">Matemáticas</div>
-    <div class="ramo" id="biologia" data-col="1">Biología</div>
-    <div class="ramo" id="quimica" data-col="1">Química General</div>
-    <div class="ramo" id="intro" data-col="1">Introducción a la Odontología</div>
+    <!-- 1° semestre -->
+    <div class="ramo" id="morfo1" data-col="1" data-row="1">Morfofunción I</div>
+    <div class="ramo" id="matematicas" data-col="1" data-row="2">Matemáticas</div>
+    <div class="ramo" id="biologia" data-col="1" data-row="3">Biología</div>
+    <div class="ramo" id="quimica" data-col="1" data-row="4">Química General</div>
+    <div class="ramo" id="intro" data-col="1" data-row="5">Introducción a la Odontología</div>
 
-    <div class="ramo" id="morfo2" data-prer="morfo1" data-col="2">Morfofunción II</div>
-    <div class="ramo" id="biofisica" data-prer="matematicas" data-col="2">Biofísica</div>
-    <div class="ramo" id="bioquimica" data-prer="biologia,quimica" data-col="2">Bioquímica</div>
-    <div class="ramo" id="habilidades" data-prer="intro" data-col="2">Habilidades y Destrezas Odontológicas</div>
+    <!-- 2° semestre -->
+    <div class="ramo" id="morfo2" data-col="2" data-row="1" data-prer="morfo1">Morfofunción II</div>
+    <div class="ramo" id="biofisica" data-col="2" data-row="2" data-prer="matematicas">Biofísica</div>
+    <div class="ramo" id="bioquimica" data-col="2" data-row="3" data-prer="biologia,quimica">Bioquímica</div>
+    <div class="ramo" id="habilidades" data-col="2" data-row="4" data-prer="intro">Habilidades y Destrezas Odontológicas</div>
 
-    <div class="ramo" id="anatomia" data-prer="morfo2" data-col="3">Anatomía Aplicada</div>
-    <div class="ramo" id="micro1" data-prer="morfo2,bioquimica" data-col="3">Microbiología y Parasitología</div>
-    <div class="ramo" id="patogeneral" data-prer="morfo2" data-col="3">Patología General</div>
-    <div class="ramo" id="bioetica" data-prer="intro" data-col="3">Bioética</div>
+    <!-- 3° semestre -->
+    <div class="ramo" id="anatomia" data-col="3" data-row="1" data-prer="morfo2">Anatomía Aplicada</div>
+    <div class="ramo" id="micro1" data-col="3" data-row="2" data-prer="morfo2,bioquimica">Microbiología y Parasitología</div>
+    <div class="ramo" id="patogeneral" data-col="3" data-row="3" data-prer="morfo2">Patología General</div>
+    <div class="ramo" id="bioetica" data-col="3" data-row="4" data-prer="intro">Bioética</div>
 
-    <div class="ramo doble" id="preclinico" data-prer="biofisica,habilidades" data-col="4">Preclínico y Biomateriales</div>
-    <div class="ramo" id="microoral" data-prer="micro1" data-col="4">Microbiología Oral</div>
-    <div class="ramo" id="protradio" data-prer="biofisica" data-col="4">Protección Radiológica</div>
-    <div class="ramo" id="patooral1" data-prer="patogeneral" data-col="4">Patología Oral I</div>
-    <div class="ramo" id="epidemio" data-prer="matematicas" data-col="4">Epidemiología</div>
+    <!-- 4° semestre -->
+    <div class="ramo doble" id="preclinico" data-col="4" data-row="1" data-prer="biofisica,habilidades">Preclínico y Biomateriales</div>
+    <div class="ramo" id="microoral" data-col="4" data-row="2" data-prer="micro1">Microbiología Oral</div>
+    <div class="ramo" id="protradio" data-col="4" data-row="3" data-prer="biofisica">Protección Radiológica</div>
+    <div class="ramo" id="patooral1" data-col="4" data-row="4" data-prer="patogeneral">Patología Oral I</div>
+    <div class="ramo" id="epidemio" data-col="4" data-row="5" data-prer="matematicas">Epidemiología</div>
 
-    <div class="ramo" id="imagen1" data-prer="anatomia,protradio" data-col="5">Diagnóstico por Imágenes I</div>
-    <div class="ramo" id="patooral2" data-prer="patooral1,microoral" data-col="5">Patología Oral II</div>
+    <!-- 5° semestre -->
+    <div class="ramo" id="imagen1" data-col="5" data-row="1" data-prer="anatomia,protradio">Diagnóstico por Imágenes I</div>
+    <div class="ramo" id="patooral2" data-col="5" data-row="2" data-prer="patooral1,microoral">Patología Oral II</div>
 
-    <div class="ramo" id="imagen2" data-prer="imagen1" data-col="6">Diagnóstico por Imágenes II</div>
-    <div class="ramo" id="patooral3" data-prer="patooral2" data-col="6">Patología Oral III</div>
-    <div class="ramo" id="farmaco" data-prer="microoral,patooral1" data-col="6">Farmacología General y Clínica</div>
-    <div class="ramo doble" id="rehabili" data-prer="anatomia,preclinico,microoral" data-col="6">Preclínico Rehabilitación</div>
-    <div class="ramo" id="cirubucal" data-prer="microoral,patooral1,anatomia" data-col="6">Cirugía Bucal</div>
-    <div class="ramo" id="oclusion" data-prer="anatomia,preclinico" data-col="6">Oclusión y TTM</div>
+    <!-- 6° semestre -->
+    <div class="ramo" id="imagen2" data-col="6" data-row="1" data-prer="imagen1">Diagnóstico por Imágenes II</div>
+    <div class="ramo" id="patooral3" data-col="6" data-row="2" data-prer="patooral2">Patología Oral III</div>
+    <div class="ramo" id="farmaco" data-col="6" data-row="3" data-prer="microoral,patooral1">Farmacología General y Clínica</div>
+    <div class="ramo doble" id="rehabili" data-col="6" data-row="4" data-prer="anatomia,preclinico,microoral">Preclínico Rehabilitación</div>
+    <div class="ramo" id="cirubucal" data-col="6" data-row="5" data-prer="microoral,patooral1,anatomia">Cirugía Bucal</div>
+    <div class="ramo" id="oclusion" data-col="6" data-row="6" data-prer="anatomia,preclinico">Oclusión y TTM</div>
 
-    <div class="ramo doble" id="nino1" data-prer="farmaco,rehabili,imagen2,patooral3" data-col="7">Clínica del Niño I</div>
-    <div class="ramo doble" id="rehab" data-prer="farmaco,rehabili,cirubucal,oclusion,imagen2,patooral3" data-col="7">Clínica Rehabilitación Oral</div>
-    <div class="ramo doble" id="endo" data-prer="farmaco,rehabili,oclusion,imagen2,patooral3" data-col="7">Clínica Endodoncia</div>
-    <div class="ramo doble" id="perio" data-prer="farmaco,rehabili,oclusion,imagen2,patooral3" data-col="7">Clínica Periodoncia</div>
-    <div class="ramo doble" id="cirutrauma" data-prer="farmaco,cirubucal,imagen2,patooral3" data-col="7">Cirugía y Trauma BD</div>
-    <div class="ramo" id="ingles1" data-prer="habilidades" data-col="7">Inglés I</div>
+    <!-- 7° semestre -->
+    <div class="ramo doble" id="nino1" data-col="7" data-row="1" data-prer="farmaco,rehabili,imagen2,patooral3">Clínica del Niño I</div>
+    <div class="ramo doble" id="rehab" data-col="7" data-row="2" data-prer="farmaco,rehabili,cirubucal,oclusion,imagen2,patooral3">Clínica Rehabilitación Oral</div>
+    <div class="ramo doble" id="endo" data-col="7" data-row="3" data-prer="farmaco,rehabili,oclusion,imagen2,patooral3">Clínica Endodoncia</div>
+    <div class="ramo doble" id="perio" data-col="7" data-row="4" data-prer="farmaco,rehabili,oclusion,imagen2,patooral3">Clínica Periodoncia</div>
+    <div class="ramo doble" id="cirutrauma" data-col="7" data-row="5" data-prer="farmaco,cirubucal,imagen2,patooral3">Cirugía y Trauma BD</div>
+    <div class="ramo" id="ingles1" data-col="7" data-row="6" data-prer="habilidades">Inglés I</div>
 
-    <div class="ramo doble" id="nino2" data-prer="nino1" data-col="9">Clínica del Niño II</div>
-    <div class="ramo doble" id="integral" data-prer="rehab,endo,perio,cirutrauma" data-col="9">Clínica Integral Adulto</div>
-    <div class="ramo" id="maxilo" data-prer="cirutrauma" data-col="9">Cirugía Máxilofacial</div>
-    <div class="ramo" id="promoprev" data-prer="epidemio,rehabili,nino1,perio" data-col="9">Promoción y Prevención</div>
-    <div class="ramo" id="ingles2" data-prer="ingles1" data-col="9">Inglés II</div>
+    <!-- 8° semestre -->
+    <!-- Clínicas del 7° continúan, no se agregan nuevos ramos aquí -->
 
-    <div class="ramo" id="legal" data-prer="nino1,rehab,endo,perio,cirubucal" data-col="10">Odontología Legal</div>
-    <div class="ramo" id="gestion" data-prer="promoprev" data-col="10">Gestión en Salud</div>
+    <!-- 9° semestre -->
+    <div class="ramo doble" id="nino2" data-col="9" data-row="1" data-prer="nino1">Clínica del Niño II</div>
+    <div class="ramo doble" id="integral" data-col="9" data-row="2" data-prer="rehab,endo,perio,cirutrauma">Clínica Integral Adulto</div>
+    <div class="ramo" id="maxilo" data-col="9" data-row="3" data-prer="cirutrauma">Cirugía Máxilofacial</div>
+    <div class="ramo" id="promoprev" data-col="9" data-row="4" data-prer="epidemio,rehabili,nino1,perio">Promoción y Prevención</div>
+    <div class="ramo" id="ingles2" data-col="9" data-row="5" data-prer="ingles1">Inglés II</div>
 
-    <div class="ramo" id="invest" data-prer="legal,gestion" data-col="11">Metodología Investigación</div>
-    <div class="ramo doble" id="internado" data-prer="legal,gestion" data-col="11">Internado Asistencial</div>
+    <!-- 10° semestre -->
+    <div class="ramo" id="legal" data-col="10" data-row="1" data-prer="nino1,rehab,endo,perio,cirubucal">Odontología Legal</div>
+    <div class="ramo" id="gestion" data-col="10" data-row="2" data-prer="promoprev">Gestión en Salud</div>
 
-    <div class="ramo" id="seminario" data-prer="invest" data-col="12">Seminario Investigación</div>
+    <!-- 11° semestre -->
+    <div class="ramo" id="invest" data-col="11" data-row="1" data-prer="legal,gestion">Metodología Investigación</div>
+    <div class="ramo doble" id="internado" data-col="11" data-row="2" data-prer="legal,gestion">Internado Asistencial</div>
+
+    <!-- 12° semestre -->
+    <div class="ramo" id="seminario" data-col="12" data-row="1" data-prer="invest">Seminario Investigación</div>
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const ramos = document.querySelectorAll(".ramo");
+      const progresoGuardado = JSON.parse(localStorage.getItem("mallaAprobada")) || [];
 
+      // Restaurar estado desde localStorage
       ramos.forEach(ramo => {
+        const id = ramo.id;
         const prer = ramo.dataset.prer?.split(",") || [];
+
         if (prer.length === 0) {
           ramo.classList.add("desbloqueado");
+        }
+
+        if (progresoGuardado.includes(id)) {
+          ramo.classList.add("aprobado");
         }
 
         ramo.addEventListener("click", () => {
           if (!ramo.classList.contains("desbloqueado")) return;
           ramo.classList.toggle("aprobado");
+          guardarProgreso();
           actualizarDesbloqueos();
         });
       });
+
+      actualizarDesbloqueos();
 
       function actualizarDesbloqueos() {
         ramos.forEach(ramo => {
@@ -113,6 +137,13 @@
             ramo.classList.remove("aprobado");
           }
         });
+
+        guardarProgreso();
+      }
+
+      function guardarProgreso() {
+        const aprobados = [...document.querySelectorAll(".ramo.aprobado")].map(r => r.id);
+        localStorage.setItem("mallaAprobada", JSON.stringify(aprobados));
       }
 
       window.reiniciarMalla = function () {
@@ -126,6 +157,8 @@
             ramo.classList.add("desbloqueado");
           }
         });
+
+        localStorage.removeItem("mallaAprobada");
       };
     });
   </script>
