@@ -46,7 +46,7 @@ button:hover {
   font-size: 1.1rem;
 }
 
-/* Estilo base para todos los ramos */
+/* Estilo base de cada ramo */
 .ramo {
   background-color: #fce4ec;
   color: #880e4f;
@@ -60,11 +60,6 @@ button:hover {
   cursor: default;
   word-wrap: break-word;
   grid-row: span 1;
-}
-
-/* Ramos anuales que ocupan dos columnas */
-.ramo.doble {
-  grid-column: span 2;
 }
 
 /* Ramos desbloqueados (clickeables) */
@@ -103,7 +98,7 @@ button:hover {
 .ramo[data-col="11"] { grid-column-start: 11; }
 .ramo[data-col="12"] { grid-column-start: 12; }
 
-/* Posicionamiento por fila (vertical, según orden dentro del semestre) */
+/* Posicionamiento por fila (vertical, dentro de cada semestre) */
 .ramo[data-row="1"] { grid-row-start: 2; }
 .ramo[data-row="2"] { grid-row-start: 3; }
 .ramo[data-row="3"] { grid-row-start: 4; }
