@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,155 +7,143 @@
 </head>
 <body>
   <h1>Malla Interactiva Odontología UDP</h1>
-  <div id="malla-container">
+  <button id="reiniciar-btn">Reiniciar malla</button>
+  <div id="malla-container"><!-- SEMESTRES 1 AL 12 CON RAMOS COMPLETOS Y ANUALES DIVIDIDOS -->
 
-    <!-- PRIMER AÑO -->
-    <section class="año">
-      <h2>Primer Año</h2>
-
-      <div class="semestre">
-        <h3>1° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Morfofunción I">Morfofunción I</div>
-          <div class="ramo" data-nombre="Matemáticas">Matemáticas</div>
-          <div class="ramo" data-nombre="Biología">Biología</div>
-          <div class="ramo" data-nombre="Química General">Química General</div>
-          <div class="ramo" data-nombre="Introducción a la Odontología">Introducción a la Odontología</div>
-        </div>
-      </div>
-
-      <div class="semestre">
-        <h3>2° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Morfofunción II" data-prerreq="Morfofunción I">Morfofunción II</div>
-          <div class="ramo" data-nombre="Biofísica" data-prerreq="Matemáticas">Biofísica</div>
-          <div class="ramo" data-nombre="Bioquímica" data-prerreq="Biología,Química General">Bioquímica</div>
-          <div class="ramo" data-nombre="Habilidades y Destrezas Odontológicas" data-prerreq="Introducción a la Odontología">Habilidades y Destrezas Odontológicas</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEGUNDO AÑO -->
-    <section class="año">
-      <h2>Segundo Año</h2>
-
-      <div class="semestre">
-        <h3>3° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Anatomía Aplicada" data-prerreq="Morfofunción II">Anatomía Aplicada</div>
-          <div class="ramo" data-nombre="Microbiología y Parasitología" data-prerreq="Morfofunción II,Bioquímica">Microbiología y Parasitología</div>
-          <div class="ramo" data-nombre="Patología General" data-prerreq="Morfofunción II">Patología General</div>
-          <div class="ramo" data-nombre="Bioética" data-prerreq="Introducción a la Odontología">Bioética</div>
-        </div>
-      </div>
-
-      <div class="semestre">
-        <h3>4° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Preclínico y Biomateriales Dentales" data-prerreq="Biofísica,Habilidades y Destrezas Odontológicas">Preclínico y Biomateriales Dentales</div>
-          <div class="ramo" data-nombre="Microbiología Oral" data-prerreq="Microbiología y Parasitología">Microbiología Oral</div>
-          <div class="ramo" data-nombre="Elementos esenciales de Protección Radiológica" data-prerreq="Biofísica">Elementos esenciales de Protección Radiológica</div>
-          <div class="ramo" data-nombre="Patología Oral I" data-prerreq="Patología General">Patología Oral I</div>
-          <div class="ramo" data-nombre="Epidemiología" data-prerreq="Matemáticas">Epidemiología</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TERCER AÑO -->
-    <section class="año">
-      <h2>Tercer Año</h2>
-
-      <div class="semestre">
-        <h3>5° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Diagnóstico por Imágenes I" data-prerreq="Anatomía Aplicada,Elementos esenciales de Protección Radiológica">Diagnóstico por Imágenes I</div>
-          <div class="ramo" data-nombre="Patología Oral II" data-prerreq="Patología Oral I,Microbiología Oral">Patología Oral II</div>
-        </div>
-      </div>
-
-      <div class="semestre">
-        <h3>6° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Diagnóstico por Imágenes II" data-prerreq="Diagnóstico por Imágenes I">Diagnóstico por Imágenes II</div>
-          <div class="ramo" data-nombre="Patología Oral III" data-prerreq="Patología Oral II">Patología Oral III</div>
-          <div class="ramo" data-nombre="Farmacología General y Clínica" data-prerreq="Microbiología Oral,Patología Oral I">Farmacología General y Clínica</div>
-          <div class="ramo" data-nombre="Preclínico de Rehabilitación y Cariología" data-prerreq="Anatomía Aplicada,Preclínico y Biomateriales Dentales,Microbiología Oral">Preclínico de Rehabilitación y Cariología</div>
-          <div class="ramo" data-nombre="Cirugía Bucal" data-prerreq="Microbiología Oral,Patología Oral I,Anatomía Aplicada">Cirugía Bucal</div>
-          <div class="ramo" data-nombre="Oclusión y TTM" data-prerreq="Anatomía Aplicada,Preclínico y Biomateriales Dentales">Oclusión y Trastornos Temporomandibulares</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CUARTO AÑO -->
-    <section class="año">
-      <h2>Cuarto Año</h2>
-
-      <div class="semestre">
-        <h3>7° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Clínica del Niño I" data-prerreq="Farmacología General y Clínica,Preclínico de Rehabilitación y Cariología,Diagnóstico por Imágenes II,Patología Oral III">Clínica del Niño, Adolescente y Ortodoncia I</div>
-          <div class="ramo" data-nombre="Clínica de Rehabilitación Oral" data-prerreq="Farmacología General y Clínica,Preclínico de Rehabilitación y Cariología,Cirugía Bucal,Oclusión y TTM,Diagnóstico por Imágenes II,Patología Oral III">Clínica de Rehabilitación Oral</div>
-          <div class="ramo" data-nombre="Clínica de Endodoncia" data-prerreq="Farmacología General y Clínica,Preclínico de Rehabilitación y Cariología,Oclusión y TTM,Diagnóstico por Imágenes II,Patología Oral III">Clínica de Endodoncia</div>
-          <div class="ramo" data-nombre="Clínica de Periodoncia" data-prerreq="Farmacología General y Clínica,Preclínico de Rehabilitación y Cariología,Oclusión y TTM,Diagnóstico por Imágenes II,Patología Oral III">Clínica de Periodoncia</div>
-          <div class="ramo" data-nombre="Cirugía y Trauma BD" data-prerreq="Farmacología General y Clínica,Cirugía Bucal,Diagnóstico por Imágenes II,Patología Oral III">Cirugía y Traumatología Buco Dentaria</div>
-          <div class="ramo" data-nombre="Inglés I" data-prerreq="Habilidades y Destrezas Odontológicas">Inglés I</div>
-        </div>
-      </div>
-
-      <div class="semestre">
-        <h3>8° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Continúan Clínicas">Continúan las Clínicas</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUINTO AÑO -->
-    <section class="año">
-      <h2>Quinto Año</h2>
-
-      <div class="semestre">
-        <h3>9° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Clínica del Niño II" data-prerreq="Clínica del Niño I">Clínica del Niño II</div>
-          <div class="ramo" data-nombre="Clínica Integral del Adulto y Senescente" data-prerreq="Clínica de Rehabilitación Oral,Clínica de Endodoncia,Clínica de Periodoncia,Cirugía y Trauma BD">Clínica Integral del Adulto y Senescente</div>
-          <div class="ramo" data-nombre="Cirugía Máxilo Facial" data-prerreq="Cirugía y Trauma BD">Cirugía y Traumatología Máxilo Facial</div>
-          <div class="ramo" data-nombre="Promoción y Prevención en Salud" data-prerreq="Epidemiología,Preclínico de Rehabilitación y Cariología,Clínica del Niño I,Clínica de Periodoncia">Promoción y Prevención en Salud</div>
-          <div class="ramo" data-nombre="Inglés II" data-prerreq="Inglés I">Inglés II</div>
-        </div>
-      </div>
-
-      <div class="semestre">
-        <h3>10° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Odontología Legal" data-prerreq="Clínica del Niño I,Clínica de Rehabilitación Oral,Clínica de Endodoncia,Clínica de Periodoncia,Cirugía y Trauma BD">Odontología Legal</div>
-          <div class="ramo" data-nombre="Gestión en Salud" data-prerreq="Promoción y Prevención en Salud">Gestión en Salud</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SEXTO AÑO -->
-    <section class="año">
-      <h2>Sexto Año</h2>
-
-      <div class="semestre">
-        <h3>11° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Metodología de la Investigación" data-prerreq="Odontología Legal,Gestión en Salud">Metodología de la Investigación</div>
-          <div class="ramo" data-nombre="Internado Asistencial" data-prerreq="Odontología Legal,Gestión en Salud">Internado Asistencial</div>
-        </div>
-      </div>
-
-      <div class="semestre">
-        <h3>12° Semestre</h3>
-        <div class="ramos">
-          <div class="ramo" data-nombre="Seminario de Investigación" data-prerreq="Metodología de la Investigación">Seminario de Investigación</div>
-        </div>
-      </div>
-    </section>
-
+<!-- PRIMER AÑO -->
+<section class="año">
+  <h2>Primer Año</h2>
+  <div class="semestre">
+    <h3>1º Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Morfofunción I">Morfofunción I</div>
+      <div class="ramo" data-nombre="Matemáticas">Matemáticas</div>
+      <div class="ramo" data-nombre="Biología">Biología</div>
+      <div class="ramo" data-nombre="Química General">Química General</div>
+      <div class="ramo" data-nombre="Introducción a la Odontología">Introducción a la Odontología</div>
+    </div>
   </div>
+  <div class="semestre">
+    <h3>2º Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Morfofunción II" data-prerreq="Morfofunción I">Morfofunción II</div>
+      <div class="ramo" data-nombre="Biofísica" data-prerreq="Matemáticas">Biofísica</div>
+      <div class="ramo" data-nombre="Bioquímica" data-prerreq="Biología,Química General">Bioquímica</div>
+      <div class="ramo" data-nombre="Habilidades y Destrezas Odontológicas" data-prerreq="Introducción a la Odontología">Habilidades y Destrezas Odontológicas</div>
+    </div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
-</body>
+<!-- SEGUNDO AÑO -->
+<section class="año">
+
+  <h2>Segundo Año</h2>
+  <div class="semestre">
+    <h3>3° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Anatomía Aplicada" data-prerreq="Morfofunción II">Anatomía Aplicada</div>
+      <div class="ramo" data-nombre="Microbiología y Parasitología" data-prerreq="Morfofunción II,Bioquímica">Microbiología y Parasitología</div>
+      <div class="ramo" data-nombre="Patología General" data-prerreq="Morfofunción II">Patología General</div>
+      <div class="ramo" data-nombre="Bioética" data-prerreq="Introducción a la Odontología">Bioética</div>
+    </div>
+  </div>
+  <div class="semestre">
+    <h3>4° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Preclínico y Biomateriales I" data-prerreq="Biofísica,Habilidades y Destrezas Odontológicas">Preclínico y Biomateriales I</div>
+      <div class="ramo" data-nombre="Microbiología Oral" data-prerreq="Microbiología y Parasitología">Microbiología Oral</div>
+      <div class="ramo" data-nombre="Elementos Esenciales de Protección Radiológica" data-prerreq="Biofísica">Elementos Esenciales de Protección Radiológica</div>
+      <div class="ramo" data-nombre="Patología Oral I" data-prerreq="Patología General">Patología Oral I</div>
+      <div class="ramo" data-nombre="Epidemiología" data-prerreq="Matemáticas">Epidemiología</div>
+    </div>
+  </div>
+</section><section class="año">
+  <h2>Tercer Año</h2>
+  <div class="semestre">
+    <h3>5° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Preclínico y Biomateriales II" data-prerreq="Preclínico y Biomateriales I">Preclínico y Biomateriales II</div>
+      <div class="ramo" data-nombre="Diagnóstico por Imágenes I" data-prerreq="Anatomía Aplicada,Elementos Esenciales de Protección Radiológica">Diagnóstico por Imágenes I</div>
+      <div class="ramo" data-nombre="Patología Oral II" data-prerreq="Patología Oral I,Microbiología Oral">Patología Oral II</div>
+    </div>
+  </div>
+  <div class="semestre">
+    <h3>6° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Diagnóstico por Imágenes II" data-prerreq="Diagnóstico por Imágenes I">Diagnóstico por Imágenes II</div>
+      <div class="ramo" data-nombre="Patología Oral III" data-prerreq="Patología Oral II">Patología Oral III</div>
+      <div class="ramo" data-nombre="Farmacología General y Clínica I" data-prerreq="Microbiología Oral,Patología Oral I">Farmacología General y Clínica I</div>
+      <div class="ramo" data-nombre="Preclínico de Rehabilitación I" data-prerreq="Anatomía Aplicada,Preclínico y Biomateriales II,Microbiología Oral">Preclínico de Rehabilitación I</div>
+      <div class="ramo" data-nombre="Cirugía Bucal I" data-prerreq="Microbiología Oral,Patología Oral I,Anatomía Aplicada">Cirugía Bucal I</div>
+      <div class="ramo" data-nombre="Oclusión y TTM I" data-prerreq="Anatomía Aplicada,Preclínico y Biomateriales II">Oclusión y TTM I</div>
+    </div>
+  </div>
+</section><section class="año">
+  <h2>Cuarto Año</h2>
+  <div class="semestre">
+    <h3>7° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Farmacología General y Clínica II" data-prerreq="Farmacología General y Clínica I">Farmacología General y Clínica II</div>
+      <div class="ramo" data-nombre="Preclínico de Rehabilitación II" data-prerreq="Preclínico de Rehabilitación I">Preclínico de Rehabilitación II</div>
+      <div class="ramo" data-nombre="Cirugía Bucal II" data-prerreq="Cirugía Bucal I">Cirugía Bucal II</div>
+      <div class="ramo" data-nombre="Oclusión y TTM II" data-prerreq="Oclusión y TTM I">Oclusión y TTM II</div>
+      <div class="ramo" data-nombre="Clínica del Niño I" data-prerreq="Farmacología General y Clínica II,Preclínico de Rehabilitación II,Diagnóstico por Imágenes II,Patología Oral III">Clínica del Niño I</div>
+      <div class="ramo" data-nombre="Rehabilitación Oral I" data-prerreq="Farmacología General y Clínica II,Preclínico de Rehabilitación II,Cirugía Bucal II,Oclusión y TTM II,Diagnóstico por Imágenes II,Patología Oral III">Rehabilitación Oral I</div>
+      <div class="ramo" data-nombre="Endodoncia I" data-prerreq="Farmacología General y Clínica II,Preclínico de Rehabilitación II,Oclusión y TTM II,Diagnóstico por Imágenes II,Patología Oral III">Endodoncia I</div>
+      <div class="ramo" data-nombre="Periodoncia I" data-prerreq="Farmacología General y Clínica II,Preclínico de Rehabilitación II,Oclusión y TTM II,Diagnóstico por Imágenes II,Patología Oral III">Periodoncia I</div>
+      <div class="ramo" data-nombre="Cirugía BD I" data-prerreq="Farmacología General y Clínica II,Cirugía Bucal II,Diagnóstico por Imágenes II,Patología Oral III">Cirugía y Trauma BD I</div>
+      <div class="ramo" data-nombre="Inglés I" data-prerreq="Habilidades y Destrezas Odontológicas">Inglés I</div>
+    </div>
+  </div>
+  <div class="semestre">
+    <h3>8° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Clínica del Niño II" data-prerreq="Clínica del Niño I">Clínica del Niño II</div>
+      <div class="ramo" data-nombre="Rehabilitación Oral II" data-prerreq="Rehabilitación Oral I">Rehabilitación Oral II</div>
+      <div class="ramo" data-nombre="Endodoncia II" data-prerreq="Endodoncia I">Endodoncia II</div>
+      <div class="ramo" data-nombre="Periodoncia II" data-prerreq="Periodoncia I">Periodoncia II</div>
+      <div class="ramo" data-nombre="Cirugía BD II" data-prerreq="Cirugía BD I">Cirugía y Trauma BD II</div>
+    </div>
+  </div>
+</section><section class="año">
+  <h2>Quinto Año</h2>
+  <div class="semestre">
+    <h3>9° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Clínica del Niño III" data-prerreq="Clínica del Niño II">Clínica del Niño III</div>
+      <div class="ramo" data-nombre="Clínica Integral Adulto I" data-prerreq="Rehabilitación Oral II,Endodoncia II,Periodoncia II,Cirugía BD II">Clínica Integral del Adulto I</div>
+      <div class="ramo" data-nombre="Cirugía Máxilofacial I" data-prerreq="Cirugía BD II">Cirugía y Traumatología Máxilofacial I</div>
+      <div class="ramo" data-nombre="Promoción y Prevención en Salud" data-prerreq="Epidemiología,Preclínico de Rehabilitación II,Clínica del Niño III,Periodoncia II">Promoción y Prevención en Salud</div>
+      <div class="ramo" data-nombre="Inglés II" data-prerreq="Inglés I">Inglés II</div>
+    </div>
+  </div>
+  <div class="semestre">
+    <h3>10° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Clínica Integral Adulto II" data-prerreq="Clínica Integral Adulto I">Clínica Integral del Adulto II</div>
+      <div class="ramo" data-nombre="Cirugía Máxilofacial II" data-prerreq="Cirugía Máxilofacial I">Cirugía y Traumatología Máxilofacial II</div>
+      <div class="ramo" data-nombre="Odontología Legal" data-prerreq="Clínica del Niño III,Clínica Integral Adulto II">Odontología Legal</div>
+      <div class="ramo" data-nombre="Gestión en Salud" data-prerreq="Promoción y Prevención en Salud">Gestión en Salud</div>
+    </div>
+  </div>
+</section><section class="año">
+  <h2>Sexto Año</h2>
+  <div class="semestre">
+    <h3>11° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Metodología de la Investigación" data-prerreq="Odontología Legal,Gestión en Salud">Metodología de la Investigación</div>
+      <div class="ramo" data-nombre="Internado Asistencial I" data-prerreq="Odontología Legal,Gestión en Salud">Internado Asistencial I</div>
+    </div>
+  </div>
+  <div class="semestre">
+    <h3>12° Semestre</h3>
+    <div class="ramos">
+      <div class="ramo" data-nombre="Seminario de Investigación" data-prerreq="Metodología de la Investigación">Seminario de Investigación</div>
+      <div class="ramo" data-nombre="Internado Asistencial II" data-prerreq="Internado Asistencial I">Internado Asistencial II</div>
+    </div>
+  </div>
+</section>
+    <!-- Incluirá todos los detalles en el próximo bloque --><!-- Aquí se insertará toda la estructura de 12 semestres con cada ramo y prerrequisitos ajustados -->
+
+  </div>  <script src="script.js"></script></body>
 </html>
