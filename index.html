@@ -10,7 +10,7 @@
   <button onclick="reiniciarMalla()">Reiniciar malla</button>
 
   <div class="malla">
-    <!-- Títulos de semestres -->
+    <!-- Cabeceras de semestres -->
     <div class="sem-titulo">1°</div>
     <div class="sem-titulo">2°</div>
     <div class="sem-titulo">3°</div>
@@ -24,9 +24,7 @@
     <div class="sem-titulo">11°</div>
     <div class="sem-titulo">12°</div>
 
-    <!-- TODOS LOS RAMOS AQUÍ -->
-    <!-- Pegados desde el paso anterior (¡ya están todos insertados!) -->
-
+    <!-- Ramo por ramo con su columna y requisitos -->
     <div class="ramo" id="morfo1" data-col="1">Morfofunción I</div>
     <div class="ramo" id="matematicas" data-col="1">Matemáticas</div>
     <div class="ramo" id="biologia" data-col="1">Biología</div>
@@ -121,6 +119,7 @@
         ramos.forEach(ramo => {
           ramo.classList.remove("aprobado", "desbloqueado");
         });
+
         ramos.forEach(ramo => {
           const prer = ramo.dataset.prer?.split(",") || [];
           if (prer.length === 0) {
