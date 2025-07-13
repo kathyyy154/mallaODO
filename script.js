@@ -1,4 +1,4 @@
-// Relaciones de prerrequisitos reales según la malla const prerequisitos = { morfo2: ["morfo1"], biofisica: ["mate"], bioquimica: ["bio", "quim"], habilidades1: ["intro"],
+// Relaciones corregidas con IDs que coinciden con el index.html const prerequisitos = { morfo2: ["morfo1"], biofisica: ["mate"], bioquimica: ["bio", "quim"], habilidades1: ["intro"],
 
 anato: ["morfo2"], micropara: ["morfo2", "bioquimica"], patogen: ["morfo2"], bioetica: ["intro"],
 
@@ -20,7 +20,7 @@ invest: ["legal", "gestion"], internado: ["legal", "gestion"], seminario: ["inve
 
 let aprobados = JSON.parse(localStorage.getItem("aprobados") || "[]");
 
-function aprobar(id) { const ramo = document.getElementById(id); if (ramo.classList.contains("bloqueado")) return;
+function aprobar(id) { const ramo = document.getElementById(id); if (!ramo || ramo.classList.contains("bloqueado")) return;
 
 if (ramo.classList.contains("aprobado")) { ramo.classList.remove("aprobado"); aprobados = aprobados.filter(x => x !== id); } else { ramo.classList.add("aprobado"); aprobados.push(id); }
 
