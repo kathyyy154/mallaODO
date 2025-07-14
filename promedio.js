@@ -152,13 +152,35 @@ function calcularPromedioGeneral() {
       sumaPonderada += nota * creditos;
       totalCreditos += creditos;
     }
-  });
 
-  const resultado = document.getElementById("resultado-total");
-  if (totalCreditos > 0) {
-    const promedio = (sumaPonderada / totalCreditos).toFixed(2);
-    resultado.textContent = `🎓 Promedio general ponderado: ${promedio}`;
-  } else {
-    resultado.textContent = "Ingresa al menos una nota para calcular tu promedio.";
-  }
+// === GUARDADO AUTOMÁTICO DE NOTAS ===
+
+function guardarNotas() {
+  const notas = [];
+  document.querySelectorAll("input[type='number']").forEach(input => {
+    notas.push(input.value);
+  });
+  localStorage.setItem("notasOdonto", JSON.stringify(notas));
 }
+
+function cargarNotas() {
+  const guardadas = JSON.parse(localStorage.getItem("notasOdonto")) || [];
+  const inputs = document.querySelectorAll("input[type='number']");
+  inputs.forEach((input, i) => {
+    if (guardadas[i]) {
+      input.value = guardadas[i];
+    }
+  });
+}
+
+// Llamar al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    cargarNotas();
+    document.querySelectorAll("input[type='number']").forEach(input => {
+      input.addEventListener("input", guardarNotas);
+    });
+  }, 100); // espera pequeña para que los inputs existan
+});
+
+                     
