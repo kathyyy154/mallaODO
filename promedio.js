@@ -56,12 +56,19 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Seminario de Investigación", creditos: 2, semestre: 12 },
   ];
 
+  const semestresConCFG = [2, 3, 4, 7];
+
   for (let sem = 1; sem <= 12; sem++) {
     const semRamos = ramos.filter(r => r.semestre === sem);
     if (semRamos.length === 0) continue;
 
     const grupo = document.createElement("div");
+    grupo.className = "grupo-semestre";
     grupo.innerHTML = `<h2>Semestre ${sem}</h2>`;
+
+    const contenedorRamos = document.createElement("div");
+    contenedorRamos.className = "contenedor-ramos";
+
     semRamos.forEach(ramo => {
       const linea = document.createElement("div");
       linea.className = "ramo-input";
@@ -69,8 +76,24 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>${ramo.nombre} (${ramo.creditos} cr)</span>
         <input type="number" min="1.0" max="7.0" step="0.1" data-creditos="${ramo.creditos}" />
       `;
-      grupo.appendChild(linea);
+      contenedorRamos.appendChild(linea);
     });
+
+    grupo.appendChild(contenedorRamos);
+
+    if (semestresConCFG.includes(sem)) {
+      const cfgZona = document.createElement("div");
+      cfgZona.className = "contenedor-cfg";
+      cfgZona.dataset.semestre = sem;
+
+      const botonCFG = document.createElement("button");
+      botonCFG.textContent = "➕ Agregar CFG";
+      botonCFG.className = "boton-promedio";
+      botonCFG.onclick = () => agregarCFG(cfgZona);
+
+      grupo.appendChild(botonCFG);
+      grupo.appendChild(cfgZona);
+    }
 
     const boton = document.createElement("button");
     boton.textContent = "Calcular promedio";
@@ -103,43 +126,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// CFG dinámico
-function agregarCFG() {
-  const contenedor = document.getElementById("lista-cfg");
-
+// FUNCIONES CFG por semestre
+function agregarCFG(zona) {
   const div = document.createElement("div");
   div.className = "ramo-input";
   div.innerHTML = `
-    <input type="text" placeholder="Nombre del CFG" class="cfg-nombre" style="flex: 1; margin-right: 10px;" />
-    <input type="number" min="1.0" max="7.0" step="0.1" placeholder="Nota" class="cfg-nota" style="width: 70px;" />
-    <span style="margin-left: 10px;">5 cr</span>
+    <input type="text" placeholder="Nombre del CFG" style="flex: 1; margin-right: 10px;" />
+    <input type="number" min="1.0" max="7.0" step="0.1" data-creditos="5" placeholder="Nota" style="width: 70px;" />
+    <span style="margin: 0 10px;">5 cr</span>
+    <button onclick="this.parentElement.remove()" style="background-color:#f8bbd0; border:none; border-radius:5px; padding:4px 8px; cursor:pointer;">❌</button>
   `;
-  contenedor.appendChild(div);
+  zona.appendChild(div);
 }
 
-function calcularCFG() {
-  const notas = document.querySelectorAll(".cfg-nota");
-  let totalCreditos = 0;
-  let sumaPonderada = 0;
-
-  notas.forEach(input => {
-    const nota = parseFloat(input.value);
-    if (!isNaN(nota)) {
-      sumaPonderada += nota * 5;
-      totalCreditos += 5;
-    }
-  });
-
-  const resultado = document.getElementById("resultado-cfg");
-  if (totalCreditos > 0) {
-    const promedio = (sumaPonderada / totalCreditos).toFixed(2);
-    resultado.textContent = `Promedio CFG: ${promedio}`;
-  } else {
-    resultado.textContent = "Ingresa al menos una nota válida";
-  }
-}
-
-// Promedio total
+// Cálculo promedio general
 function calcularPromedioGeneral() {
   const todasNotas = document.querySelectorAll("input[type='number']");
   let totalCreditos = 0;
