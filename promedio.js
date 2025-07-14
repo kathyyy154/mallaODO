@@ -180,7 +180,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("input[type='number']").forEach(input => {
       input.addEventListener("input", guardarNotas);
     });
-  }, 100); // espera pequeña para que los inputs existan
+  }, 100); // pequeña espera para que inputs estén listos
 });
-
-                     
