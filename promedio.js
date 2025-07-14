@@ -117,4 +117,48 @@ function agregarCFG() {
   contenedor.appendChild(div);
 }
 
-function calcularCFG
+function calcularCFG() {
+  const notas = document.querySelectorAll(".cfg-nota");
+  let totalCreditos = 0;
+  let sumaPonderada = 0;
+
+  notas.forEach(input => {
+    const nota = parseFloat(input.value);
+    if (!isNaN(nota)) {
+      sumaPonderada += nota * 5;
+      totalCreditos += 5;
+    }
+  });
+
+  const resultado = document.getElementById("resultado-cfg");
+  if (totalCreditos > 0) {
+    const promedio = (sumaPonderada / totalCreditos).toFixed(2);
+    resultado.textContent = `Promedio CFG: ${promedio}`;
+  } else {
+    resultado.textContent = "Ingresa al menos una nota válida";
+  }
+}
+
+// Promedio total
+function calcularPromedioGeneral() {
+  const todasNotas = document.querySelectorAll("input[type='number']");
+  let totalCreditos = 0;
+  let sumaPonderada = 0;
+
+  todasNotas.forEach(input => {
+    const nota = parseFloat(input.value);
+    const creditos = parseInt(input.dataset.creditos) || 5;
+    if (!isNaN(nota)) {
+      sumaPonderada += nota * creditos;
+      totalCreditos += creditos;
+    }
+  });
+
+  const resultado = document.getElementById("resultado-total");
+  if (totalCreditos > 0) {
+    const promedio = (sumaPonderada / totalCreditos).toFixed(2);
+    resultado.textContent = `🎓 Promedio general ponderado: ${promedio}`;
+  } else {
+    resultado.textContent = "Ingresa al menos una nota para calcular tu promedio.";
+  }
+}
