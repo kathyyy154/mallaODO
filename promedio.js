@@ -13,20 +13,23 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Biofísica", creditos: 4, semestre: 2 },
     { nombre: "Bioquímica", creditos: 6, semestre: 2 },
     { nombre: "Habilidades y Destrezas Odontológicas", creditos: 5, semestre: 2 },
-    { nombre: "Curso de Formación General", creditos: 5, semestre: 2 },
+    { nombre: "CFG Aeróbica", creditos: 5, semestre: 2 },
+    { nombre: "CFG Acondicionamiento Físico Horario Flexible", creditos: 5, semestre: 2 },
+
 
     { nombre: "Anatomía Aplicada", creditos: 6, semestre: 3 },
     { nombre: "Microbiología y Parasitología", creditos: 5, semestre: 3 },
     { nombre: "Patología General", creditos: 5, semestre: 3 },
     { nombre: "Bioética", creditos: 2, semestre: 3 },
-    { nombre: "Curso de Formación General", creditos: 5, semestre: 3 },
+    { nombre: "CFG Origen y Evolución de la vida", creditos: 5, semestre: 3 },
+    { nombre: "CFG Fittball y Gimnasia con implementos", creditos: 5, semestre: 3 },
 
     { nombre: "Preclínico y Biomateriales Dentales", creditos: 10, semestre: 4 },
     { nombre: "Microbiología Oral", creditos: 4, semestre: 4 },
     { nombre: "Protección Radiológica", creditos: 3, semestre: 4 },
     { nombre: "Patología Oral I", creditos: 4, semestre: 4 },
     { nombre: "Epidemiología", creditos: 3, semestre: 4 },
-    { nombre: "Curso de Formación General", creditos: 5, semestre: 4 },
+    { nombre: "Curso de Formación General?", creditos: 5, semestre: 4 },
 
     { nombre: "Diagnóstico por Imágenes I", creditos: 4, semestre: 5 },
     { nombre: "Patología Oral II", creditos: 4, semestre: 5 },
@@ -43,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Clínica de Endodoncia", creditos: 10, semestre: 7 },
     { nombre: "Clínica de Periodoncia", creditos: 10, semestre: 7 },
     { nombre: "Cirugía y Trauma Buco Dentaria", creditos: 6, semestre: 7 },
-    { nombre: "Curso de Formación General", creditos: 5, semestre: 7 },
+    { nombre: "Curso de Formación General??", creditos: 5, semestre: 7 },
     { nombre: "Inglés I", creditos: 2, semestre: 8 },
 
     { nombre: "Clínica del Niño II", creditos: 10, semestre: 9 },
