@@ -5,6 +5,11 @@
   <title>Calculadora de Promedio - Odontología UDP</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
+    body {
+      background-color: #fff0f5;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+    }
     .promedio-contenedor {
       max-width: 900px;
       margin: auto;
@@ -12,6 +17,7 @@
       border-radius: 15px;
       padding: 2rem;
       box-shadow: 0 0 10px rgba(216, 27, 96, 0.2);
+      margin-bottom: 2rem;
     }
     .promedio-contenedor h2 {
       color: #d81b60;
@@ -68,10 +74,24 @@
 </head>
 <body>
   <h1>🧮 Calculadora de Promedio Ponderado</h1>
-<a href="index.html" class="volver">← Volver a la malla</a>
-  
+  <a href="index.html" class="volver">← Volver a la malla</a>
+
   <div class="promedio-contenedor" id="contenedor-promedio">
-    <!-- Aquí irán los semestres dinámicamente -->
+    <!-- Aquí se generan los semestres automáticamente -->
+  </div>
+
+  <div class="promedio-contenedor" id="cfg-extra">
+    <h2>Cursos de Formación General Opcionales</h2>
+    <button class="boton-promedio" onclick="agregarCFG()">➕ Agregar CFG</button>
+    <div id="lista-cfg"></div>
+    <button class="boton-promedio" onclick="calcularCFG()">Calcular promedio CFG</button>
+    <div id="resultado-cfg" class="resultado"></div>
+  </div>
+
+  <div class="promedio-contenedor" id="promedio-total-box">
+    <h2>📊 Promedio General de la Carrera</h2>
+    <button class="boton-promedio" onclick="calcularPromedioGeneral()">Calcular promedio general</button>
+    <div id="resultado-total" class="resultado"></div>
   </div>
 
   <script src="promedio.js"></script>
