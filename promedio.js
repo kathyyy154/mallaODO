@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor-promedio");
 
-  // Datos de los ramos con créditos y semestre
   const ramos = [
     { nombre: "Morfofunción I", creditos: 11, semestre: 1 },
     { nombre: "Matemáticas", creditos: 5, semestre: 1 },
@@ -13,23 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Biofísica", creditos: 4, semestre: 2 },
     { nombre: "Bioquímica", creditos: 6, semestre: 2 },
     { nombre: "Habilidades y Destrezas Odontológicas", creditos: 5, semestre: 2 },
-    { nombre: "CFG Aeróbica", creditos: 5, semestre: 2 },
-    { nombre: "CFG Acondicionamiento Físico Horario Flexible", creditos: 5, semestre: 2 },
-
 
     { nombre: "Anatomía Aplicada", creditos: 6, semestre: 3 },
     { nombre: "Microbiología y Parasitología", creditos: 5, semestre: 3 },
     { nombre: "Patología General", creditos: 5, semestre: 3 },
     { nombre: "Bioética", creditos: 2, semestre: 3 },
-    { nombre: "CFG Origen y Evolución de la vida", creditos: 5, semestre: 3 },
-    { nombre: "CFG Fittball y Gimnasia con implementos", creditos: 5, semestre: 3 },
 
     { nombre: "Preclínico y Biomateriales Dentales", creditos: 10, semestre: 4 },
     { nombre: "Microbiología Oral", creditos: 4, semestre: 4 },
     { nombre: "Protección Radiológica", creditos: 3, semestre: 4 },
     { nombre: "Patología Oral I", creditos: 4, semestre: 4 },
     { nombre: "Epidemiología", creditos: 3, semestre: 4 },
-    { nombre: "Curso de Formación General?", creditos: 5, semestre: 4 },
 
     { nombre: "Diagnóstico por Imágenes I", creditos: 4, semestre: 5 },
     { nombre: "Patología Oral II", creditos: 4, semestre: 5 },
@@ -46,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Clínica de Endodoncia", creditos: 10, semestre: 7 },
     { nombre: "Clínica de Periodoncia", creditos: 10, semestre: 7 },
     { nombre: "Cirugía y Trauma Buco Dentaria", creditos: 6, semestre: 7 },
-    { nombre: "Curso de Formación General??", creditos: 5, semestre: 7 },
-    { nombre: "Inglés I", creditos: 2, semestre: 8 },
+    { nombre: "Inglés I", creditos: 2, semestre: 7 },
 
     { nombre: "Clínica del Niño II", creditos: 10, semestre: 9 },
     { nombre: "Clínica Integral del Adulto y Senescente", creditos: 12, semestre: 9 },
@@ -64,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     { nombre: "Seminario de Investigación", creditos: 2, semestre: 12 },
   ];
 
-  // Agrupar por semestre
   for (let sem = 1; sem <= 12; sem++) {
     const semRamos = ramos.filter(r => r.semestre === sem);
     if (semRamos.length === 0) continue;
@@ -81,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
       grupo.appendChild(linea);
     });
 
-    // Botón para calcular promedio de este semestre
     const boton = document.createElement("button");
     boton.textContent = "Calcular promedio";
     boton.className = "boton-promedio";
@@ -112,3 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
     contenedor.appendChild(grupo);
   }
 });
+
+// CFG dinámico
+function agregarCFG() {
+  const contenedor = document.getElementById("lista-cfg");
+
+  const div = document.createElement("div");
+  div.className = "ramo-input";
+  div.innerHTML = `
+    <input type="text" placeholder="Nombre del CFG" class="cfg-nombre" style="flex: 1; margin-right: 10px;" />
+    <input type="number" min="1.0" max="7.0" step="0.1" placeholder="Nota" class="cfg-nota" style="width: 70px;" />
+    <span style="margin-left: 10px;">5 cr</span>
+  `;
+  contenedor.appendChild(div);
+}
+
+function calcularCFG
