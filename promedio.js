@@ -46,20 +46,42 @@ function generarSemestres() {
     { nombre: "Seminario de Investigación", creditos: 2, semestre: 12 },
   ];
 
+  const semestresConCFG = [2, 3, 4, 7];
+
   for (let sem = 1; sem <= 12; sem++) {
     const grupo = document.createElement("div");
+    grupo.className = "grupo-semestre";
     grupo.innerHTML = `<h2>Semestre ${sem}</h2>`;
 
+    const contenedorRamos = document.createElement("div");
+    contenedorRamos.className = "contenedor-ramos";
+
     const semRamos = ramos.filter(r => r.semestre === sem);
-    semRamos.forEach(ramo => {
+    semRamos.forEach((ramo) => {
       const linea = document.createElement("div");
       linea.className = "ramo-input";
       linea.innerHTML = `
         <span>${ramo.nombre} (${ramo.creditos} cr)</span>
         <input type="number" min="1.0" max="7.0" step="0.1" data-creditos="${ramo.creditos}" />
       `;
-      grupo.appendChild(linea);
+      contenedorRamos.appendChild(linea);
     });
+
+    grupo.appendChild(contenedorRamos);
+
+    if (semestresConCFG.includes(sem)) {
+      const cfgZona = document.createElement("div");
+      cfgZona.className = "contenedor-cfg";
+      cfgZona.dataset.semestre = sem;
+
+      const botonCFG = document.createElement("button");
+      botonCFG.textContent = "➕ Agregar CFG";
+      botonCFG.className = "boton-promedio";
+      botonCFG.onclick = () => agregarCFG(cfgZona);
+
+      grupo.appendChild(botonCFG);
+      grupo.appendChild(cfgZona);
+    }
 
     const boton = document.createElement("button");
     boton.textContent = "Calcular promedio";
@@ -90,18 +112,20 @@ function generarSemestres() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  generarSemestres();
+// ➕ Agregar CFG dinámico
+function agregarCFG(zona) {
+  const div = document.createElement("div");
+  div.className = "ramo-input";
+  div.innerHTML = `
+    <input type="text" placeholder="Nombre del CFG" style="flex: 1; margin-right: 10px;" />
+    <input type="number" min="1.0" max="7.0" step="0.1" data-creditos="5" placeholder="Nota" style="width: 70px;" />
+    <span style="margin: 0 10px;">5 cr</span>
+    <button onclick="this.parentElement.remove()" style="background-color:#f8bbd0; border:none; border-radius:5px; padding:4px 8px; cursor:pointer;">❌</button>
+  `;
+  zona.appendChild(div);
+}
 
-  setTimeout(() => {
-    cargarNotas();
-    document.querySelectorAll("input[type='number']").forEach(input => {
-      input.addEventListener("input", guardarNotas);
-    });
-  }, 100);
-});
-
-// Guardado automático
+// Guardar y cargar notas automáticamente
 function guardarNotas() {
   const notas = [];
   document.querySelectorAll("input[type='number']").forEach(input => {
@@ -120,7 +144,7 @@ function cargarNotas() {
   });
 }
 
-// Promedio general + ranking
+// Calcular promedio general y ranking
 function calcularPromedioGeneral() {
   const todasNotas = document.querySelectorAll("input[type='number']");
   let totalCreditos = 0;
@@ -153,3 +177,14 @@ function calcularPromedioGeneral() {
     resultado.textContent = "Ingresa al menos una nota para calcular tu promedio.";
   }
 }
+
+// Iniciar todo al cargar
+document.addEventListener("DOMContentLoaded", () => {
+  generarSemestres();
+  setTimeout(() => {
+    cargarNotas();
+    document.querySelectorAll("input[type='number']").forEach(input => {
+      input.addEventListener("input", guardarNotas);
+    });
+  }, 100);
+});
