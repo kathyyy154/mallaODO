@@ -50,11 +50,7 @@ function generarSemestres() {
 
   for (let sem = 1; sem <= 12; sem++) {
     const grupo = document.createElement("div");
-    grupo.className = "grupo-semestre";
     grupo.innerHTML = `<h2>Semestre ${sem}</h2>`;
-
-    const contenedorRamos = document.createElement("div");
-    contenedorRamos.className = "contenedor-ramos";
 
     const semRamos = ramos.filter(r => r.semestre === sem);
     semRamos.forEach((ramo) => {
@@ -64,10 +60,8 @@ function generarSemestres() {
         <span>${ramo.nombre} (${ramo.creditos} cr)</span>
         <input type="number" min="1.0" max="7.0" step="0.1" data-creditos="${ramo.creditos}" />
       `;
-      contenedorRamos.appendChild(linea);
+      grupo.appendChild(linea);
     });
-
-    grupo.appendChild(contenedorRamos);
 
     if (semestresConCFG.includes(sem)) {
       const cfgZona = document.createElement("div");
@@ -93,7 +87,7 @@ function generarSemestres() {
     boton.onclick = () => {
       const inputs = grupo.querySelectorAll("input");
       let total = 0, suma = 0;
-      inputs.forEach(inp => {
+      inputs.forEach((inp) => {
         const nota = parseFloat(inp.value);
         const cred = parseInt(inp.dataset.creditos);
         if (!isNaN(nota)) {
@@ -112,7 +106,6 @@ function generarSemestres() {
   }
 }
 
-// ➕ Agregar CFG dinámico
 function agregarCFG(zona) {
   const div = document.createElement("div");
   div.className = "ramo-input";
@@ -125,10 +118,9 @@ function agregarCFG(zona) {
   zona.appendChild(div);
 }
 
-// Guardar y cargar notas automáticamente
 function guardarNotas() {
   const notas = [];
-  document.querySelectorAll("input[type='number']").forEach(input => {
+  document.querySelectorAll("input[type='number']").forEach((input) => {
     notas.push(input.value);
   });
   localStorage.setItem("notasOdonto", JSON.stringify(notas));
@@ -144,13 +136,12 @@ function cargarNotas() {
   });
 }
 
-// Calcular promedio general y ranking
 function calcularPromedioGeneral() {
   const todasNotas = document.querySelectorAll("input[type='number']");
   let totalCreditos = 0;
   let sumaPonderada = 0;
 
-  todasNotas.forEach(input => {
+  todasNotas.forEach((input) => {
     const nota = parseFloat(input.value);
     const creditos = parseInt(input.dataset.creditos) || 5;
     if (!isNaN(nota)) {
@@ -178,12 +169,11 @@ function calcularPromedioGeneral() {
   }
 }
 
-// Iniciar todo al cargar
 document.addEventListener("DOMContentLoaded", () => {
   generarSemestres();
   setTimeout(() => {
     cargarNotas();
-    document.querySelectorAll("input[type='number']").forEach(input => {
+    document.querySelectorAll("input[type='number']").forEach((input) => {
       input.addEventListener("input", guardarNotas);
     });
   }, 100);
