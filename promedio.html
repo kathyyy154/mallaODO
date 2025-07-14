@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora de Promedio - Odontología UDP</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .promedio-contenedor {
+      max-width: 900px;
+      margin: auto;
+      background-color: #fce4ec;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(216, 27, 96, 0.2);
+    }
+    .promedio-contenedor h2 {
+      color: #d81b60;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .ramo-input {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.7rem;
+      background-color: #fff0f5;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+    .ramo-input input {
+      width: 60px;
+      padding: 0.3rem;
+      text-align: center;
+      border: 2px solid #f8bbd0;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .boton-promedio {
+      display: block;
+      margin: 1.5rem auto;
+      background-color: #f06292;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .boton-promedio:hover {
+      background-color: #ec407a;
+    }
+    .resultado {
+      text-align: center;
+      font-size: 1.3rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #880e4f;
+    }
+    .volver {
+      display: block;
+      margin: 1rem auto;
+      text-align: center;
+      color: #880e4f;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧮 Calculadora de Promedio Ponderado</h1>
+  <a href="index.html" class="volver">← Volver a la malla</a>
+
+  <div class="promedio-contenedor" id="contenedor-promedio">
+    <!-- Aquí irán los semestres dinámicamente -->
+  </div>
+
+  <script src="promedio.js"></script>
+</body>
+</html>
