@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function generarSemestres() {
   const contenedor = document.getElementById("contenedor-promedio");
 
   const ramos = [
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grupo.innerHTML = `<h2>Semestre ${sem}</h2>`;
 
     const semRamos = ramos.filter(r => r.semestre === sem);
-    semRamos.forEach((ramo) => {
+    semRamos.forEach(ramo => {
       const linea = document.createElement("div");
       linea.className = "ramo-input";
       linea.innerHTML = `
@@ -70,9 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     boton.onclick = () => {
       const inputs = grupo.querySelectorAll("input");
-      let total = 0,
-        suma = 0;
-      inputs.forEach((inp) => {
+      let total = 0, suma = 0;
+      inputs.forEach(inp => {
         const nota = parseFloat(inp.value);
         const cred = parseInt(inp.dataset.creditos);
         if (!isNaN(nota)) {
@@ -80,31 +79,32 @@ document.addEventListener("DOMContentLoaded", () => {
           total += cred;
         }
       });
-      if (total > 0) {
-        resultado.textContent = `Promedio ponderado: ${(suma / total).toFixed(2)}`;
-      } else {
-        resultado.textContent = "Ingresa al menos una nota 😅";
-      }
+      resultado.textContent = total > 0
+        ? `Promedio ponderado: ${(suma / total).toFixed(2)}`
+        : "Ingresa al menos una nota 😅";
     };
 
     grupo.appendChild(boton);
     grupo.appendChild(resultado);
     contenedor.appendChild(grupo);
   }
+}
 
-  // === CARGAR NOTAS GUARDADAS ===
+document.addEventListener("DOMContentLoaded", () => {
+  generarSemestres();
+
   setTimeout(() => {
     cargarNotas();
-    document.querySelectorAll("input[type='number']").forEach((input) => {
+    document.querySelectorAll("input[type='number']").forEach(input => {
       input.addEventListener("input", guardarNotas);
     });
   }, 100);
 });
 
-// === GUARDADO AUTOMÁTICO DE NOTAS ===
+// Guardado automático
 function guardarNotas() {
   const notas = [];
-  document.querySelectorAll("input[type='number']").forEach((input) => {
+  document.querySelectorAll("input[type='number']").forEach(input => {
     notas.push(input.value);
   });
   localStorage.setItem("notasOdonto", JSON.stringify(notas));
@@ -120,13 +120,13 @@ function cargarNotas() {
   });
 }
 
-// === PROMEDIO GENERAL + RANKING ===
+// Promedio general + ranking
 function calcularPromedioGeneral() {
   const todasNotas = document.querySelectorAll("input[type='number']");
   let totalCreditos = 0;
   let sumaPonderada = 0;
 
-  todasNotas.forEach((input) => {
+  todasNotas.forEach(input => {
     const nota = parseFloat(input.value);
     const creditos = parseInt(input.dataset.creditos) || 5;
     if (!isNaN(nota)) {
