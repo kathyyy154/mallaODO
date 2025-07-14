@@ -10,6 +10,13 @@
       padding: 2rem;
       font-family: Arial, sans-serif;
     }
+    a.volver {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #d81b60;
+      font-weight: bold;
+      text-decoration: none;
+    }
     .promedio-contenedor {
       max-width: 900px;
       margin: auto;
@@ -33,17 +40,20 @@
       padding: 0.5rem 1rem;
       border-radius: 8px;
     }
-    .ramo-input input {
-      width: 60px;
-      padding: 0.3rem;
-      text-align: center;
+    .ramo-input input[type="number"],
+    .ramo-input input[type="text"] {
+      padding: 0.4rem;
       border: 2px solid #f8bbd0;
       border-radius: 5px;
       background-color: #fff;
     }
+    .ramo-input input[type="number"] {
+      width: 60px;
+      text-align: center;
+    }
     .boton-promedio {
       display: block;
-      margin: 1.5rem auto;
+      margin: 1.5rem auto 0.5rem auto;
       background-color: #f06292;
       color: white;
       padding: 0.6rem 1.2rem;
@@ -65,8 +75,10 @@
 </head>
 <body>
 
+  <a href="index.html" class="volver">← Volver a la malla</a>
+
   <div class="promedio-contenedor" id="contenedor-promedio">
-    <!-- Aquí se cargan todos los semestres y ramos automáticamente -->
+    <!-- Aquí se cargan los ramos automáticamente -->
   </div>
 
   <div class="promedio-contenedor" id="promedio-total-box">
